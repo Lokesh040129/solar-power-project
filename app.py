@@ -2,6 +2,18 @@ import streamlit as st
 import numpy as np
 import joblib
 
+# --- Background Styling ---
+st.markdown("""
+<style>
+[data-testid="stAppViewContainer"] {
+    background-image: url("https://images.unsplash.com/photo-1574873111397-1597d94cdd61");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # Load trained Extra Trees model
 model = joblib.load("extra_trees_model.pkl")
 
@@ -32,7 +44,6 @@ if st.button("🔮 Predict Power"):
     prediction = model.predict(features)[0]
     st.success(f"Estimated Power Generated: **{int(prediction)} watts**")
 
-# At the end of your script
+# Footer
 st.markdown("---")
 st.markdown("📘 *Project by Lokesh Gadhi | July 2025*")
-
